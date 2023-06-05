@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}我的首頁{% endblock %}
+{% block content %}
+    <h2>我的首頁</h2>
+    {% if request.user.is_authenticated %}
+    	歡迎光臨:{{name}}<br>
+        時間:{{now}}<br>
+        <br>
+        <a href="/logout/"><button type="button" class="btn btn-outline-info">登出</button></a>
+    {% else %}
+        <p>您尚未登入喔~</p>
+        <br>
+        <a href="/login/"><button type="button" class="btn btn-outline-info">登入</button></a>
+        <a href="/register/"><button type="button" class="btn btn-outline-info">註冊</button></a>
+    {% endif %}
+    <span style="color:red">{{mess}}</span>
+{% endblock %}
